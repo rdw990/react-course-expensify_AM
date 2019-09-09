@@ -1,18 +1,5 @@
 import * as firebase from 'firebase'
 
-
-
-// const config = {
-//   apiKey: AIzaSyD8upzGpvjiY5Il2C7oNVCJ7mHwMQCYZLE,
-//   authDomain: "expensify-1b6e9.firebaseapp.com",
-//   databaseURL: "https://expensify-1b6e9.firebaseio.com",
-//   projectId: "expensify-1b6e9",
-//   storageBucket: "expensify-1b6e9.appspot.com",
-//   messagingSenderId: "864798334319",
-//   appId: "1:864798334319:web:106f2952006df46de99c9a"
-// }
-
-
 const config = {
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -24,9 +11,10 @@ const config = {
 
 firebase.initializeApp(config);
 
-const database = firebase.database()
+const database = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export {firebase, database as default }
+export { firebase, googleAuthProvider, database as default };
 
 // database().ref().set({
 //   name: 'Barney Boy',
